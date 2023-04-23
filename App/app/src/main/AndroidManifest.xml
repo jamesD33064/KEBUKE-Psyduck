@@ -12,6 +12,18 @@
         android:theme="@style/Theme.KEBUKEPsyduck"
         tools:targetApi="31">
         <activity
+            android:name=".RevisePhoneNumberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RevisePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Auth"
             android:exported="false" />
         <activity
