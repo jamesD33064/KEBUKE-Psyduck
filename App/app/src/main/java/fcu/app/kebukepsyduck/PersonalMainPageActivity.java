@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PersonalMainPage extends AppCompatActivity {
+public class PersonalMainPageActivity extends AppCompatActivity {
 
     Button startOrderBtn;
     Button shoppingCartBtn;
@@ -37,7 +37,7 @@ public class PersonalMainPage extends AppCompatActivity {
         shoppingCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalMainPage.this, CartActivity.class);
+                Intent intent = new Intent(PersonalMainPageActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ public class PersonalMainPage extends AppCompatActivity {
         revisePhoneNumberBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonalMainPage.this, RevisePhoneNumberActivity.class);
+                Intent intent = new Intent(PersonalMainPageActivity.this, RevisePhoneNumberActivity.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class PersonalMainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Launch RevisePasswordActivity
-                Intent intent = new Intent(PersonalMainPage.this, RevisePasswordActivity.class);
+                Intent intent = new Intent(PersonalMainPageActivity.this, RevisePasswordActivity.class);
                 startActivity(intent);
             }
         });
