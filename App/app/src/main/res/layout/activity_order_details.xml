@@ -116,8 +116,9 @@
                 android:textFontWeight="800"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="223dp"
-                tools:layout_editor_absoluteY="185dp" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                app:layout_constraintStart_toEndOf="@+id/textView24"
+                app:layout_constraintTop_toTopOf="@+id/textView24" />
 
             <TextView
                 android:id="@+id/tv_orderDetails_time"
