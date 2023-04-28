@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#003E52"
+    tools:context=".LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+            <Button
+                android:id="@+id/btn_orderManage_doing"
+                android:layout_width="157dp"
+                android:layout_height="164dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#FFEBCE"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.3"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <Button
+                android:id="@+id/btn_orderManage_cost"
+                android:layout_width="327dp"
+                android:layout_height="123dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#CBD7DB"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:textColor="#5C8D9D"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_orderManage_doing" />
+
+            <Button
+                android:id="@+id/btn_orderManage_finish4"
+                android:layout_width="327dp"
+                android:layout_height="123dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#CBD7DB"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:textColor="#5C8D9D"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_orderManage_cost" />
+
+            <Button
+                android:id="@+id/btn_orderManage_finish5"
+                android:layout_width="327dp"
+                android:layout_height="123dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#CBD7DB"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:textColor="#5C8D9D"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_orderManage_finish4" />
+
+            <Button
+                android:id="@+id/btn_orderManage_finish"
+                android:layout_width="157dp"
+                android:layout_height="164dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="36dp"
+                android:backgroundTint="#FFEBCE"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:textColor="#FFFFFF"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="進行中訂單"
+                android:textAlignment="center"
+                android:textColor="#BC955C"
+                android:textFontWeight="800"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_doing"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_doing"
+                app:layout_constraintTop_toBottomOf="@+id/tv_orderManage_doing" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:text="已完成訂單"
+                android:textAlignment="center"
+                android:textColor="#BC955C"
+                android:textFontWeight="800"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_finish"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_finish"
+                app:layout_constraintTop_toBottomOf="@+id/tv_orderManage_finish" />
+
+            <TextView
+                android:id="@+id/tv_orderManage_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textFontWeight="800"
+                android:textSize="70sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_finish"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_finish"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish" />
+
+            <TextView
+                android:id="@+id/tv_orderManage_doing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-black"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textFontWeight="800"
+                android:textSize="70sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_doing"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_doing"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_doing" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="88dp"
+                android:fontFamily="sans-serif-black"
+                android:text="累積消費金額"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_cost"
+                app:layout_constraintHorizontal_bias="0.515"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_cost"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_cost" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="2023/4/24 9:00 AM"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="2023/4/24 9:00 AM"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/imageView6"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="查看明細"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView11"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="查看明細"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView17"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="進行中"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish4" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="進行中"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish5" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="消費金額"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_finish4"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish4" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="消費金額"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_finish5"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish5" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="20000"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView11"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="20000"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView17"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/tv_orderManage_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.1"
+                android:text="600"
+                android:textAlignment="center"
+                android:textColor="#5C8D9D"
+                android:textFontWeight="800"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_cost"
+                app:layout_constraintHorizontal_bias="0.517"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_cost"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_cost" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="60dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_finish4"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish4"
+                app:srcCompat="@drawable/light_psyduck" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="60dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@+id/btn_orderManage_finish5"
+                app:layout_constraintTop_toTopOf="@+id/btn_orderManage_finish5"
+                app:srcCompat="@drawable/dark_psyduck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
