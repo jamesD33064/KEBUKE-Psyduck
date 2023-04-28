@@ -29,7 +29,7 @@ public class PersonalMainPageActivity extends AppCompatActivity {
         startOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(PersonalMainPage.this, .class);
+//                Intent intent = new Intent(PersonalMainPageActivity.this, .class);
 //                startActivity(intent);
             }
         });
@@ -45,8 +45,8 @@ public class PersonalMainPageActivity extends AppCompatActivity {
         orderManageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(PersonalMainPage.this, .class);
-//                startActivity(intent);
+                Intent intent = new Intent(PersonalMainPageActivity.this, OrderManageActivity.class);
+                startActivity(intent);
             }
         });
 
