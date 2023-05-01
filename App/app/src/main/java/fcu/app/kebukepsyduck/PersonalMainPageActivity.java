@@ -29,8 +29,8 @@ public class PersonalMainPageActivity extends AppCompatActivity {
         startOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(PersonalMainPageActivity.this, .class);
-//                startActivity(intent);
+                Intent intent = new Intent(PersonalMainPageActivity.this, FoodListActivity.class);
+                startActivity(intent);
             }
         });
 

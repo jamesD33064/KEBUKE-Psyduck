@@ -51,7 +51,7 @@
         android:backgroundTint="#FFEBCE"
         android:backgroundTintMode="src_over"
         android:letterSpacing="0.3"
-        android:text="繼續選購"
+        android:text="確認訂單"
         android:textAlignment="center"
         android:textColor="#BC955C"
         android:textSize="20sp"
