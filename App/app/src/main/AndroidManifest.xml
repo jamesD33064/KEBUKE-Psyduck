@@ -12,6 +12,9 @@
         android:theme="@style/Theme.KEBUKEPsyduck"
         tools:targetApi="31">
         <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrderDetailsActivity"
             android:exported="false" />
         <activity
