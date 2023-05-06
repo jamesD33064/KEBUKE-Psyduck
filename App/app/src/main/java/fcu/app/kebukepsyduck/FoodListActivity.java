@@ -28,9 +28,7 @@ public class FoodListActivity extends AppCompatActivity {
 
         binding = ActivityFoodListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.toolbar);
-
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

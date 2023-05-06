@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/name_component_FoodItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="餐點名稱"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        />
+
+    <TextView
+        android:id="@+id/price_component_FoodItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120$"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp" />
+
+    <ImageView
+        android:id="@+id/img_component_FoodItem"
+        android:layout_width="wrap_content"
+        android:layout_height="274dp"
+        android:src="@drawable/breakfast_eggcake" />
+
+</merge>

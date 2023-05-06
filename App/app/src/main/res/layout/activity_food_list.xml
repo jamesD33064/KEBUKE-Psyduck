@@ -20,9 +20,47 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ListView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <fcu.app.kebukepsyduck.component_FoodItem
+                android:id="@+id/FoodItem_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imgSrc="@drawable/breakfast_eggcake"
+                app:textName="高級蛋餅"
+                app:textPrice="12$" />
+            <fcu.app.kebukepsyduck.component_FoodItem
+                android:id="@+id/FoodItem_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imgSrc="@drawable/breakfast_eggcake"
+                app:textName="漢堡"
+                app:textPrice="12$" />
+            <fcu.app.kebukepsyduck.component_FoodItem
+                android:id="@+id/FoodItem_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imgSrc="@drawable/breakfast_eggcake"
+                app:textName="吐司"
+                app:textPrice="12$" />
+            <fcu.app.kebukepsyduck.component_FoodItem
+                android:id="@+id/FoodItem_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imgSrc="@drawable/breakfast_eggcake"
+                app:textName="奶茶"
+                app:textPrice="12$" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
