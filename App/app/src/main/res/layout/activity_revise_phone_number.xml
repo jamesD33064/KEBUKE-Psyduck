@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_revise_phoneNumber"
         android:layout_width="273dp"
         android:layout_height="61dp"
         android:layout_marginStart="70dp"
