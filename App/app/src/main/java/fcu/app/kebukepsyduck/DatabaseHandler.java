@@ -63,6 +63,18 @@ public class DatabaseHandler {
         return true;
     }
 
+    public boolean updateMemberPassword(String phone, String oldPassword, String newPassword) {
+        if (!getMemberPassword(phone).equals(oldPassword)) {
+            Toast.makeText(activity, "原密碼錯誤", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        ContentValues values = new ContentValues();
+        values.put("password", newPassword);
+        int rowsAffected = database.update("Members", values, "phone=?", new String[]{phone});
+        Toast.makeText(activity, "密碼已更新", Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
     public Cursor getAllMember() {
         Cursor cursor = database.rawQuery("SELECT * FROM Members", null);
         return cursor;

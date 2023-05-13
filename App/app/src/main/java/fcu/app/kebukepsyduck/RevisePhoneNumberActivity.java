@@ -36,7 +36,13 @@ public class RevisePhoneNumberActivity extends AppCompatActivity {
                 }
                 SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
                 String oldPhoneNumber = sharedPref.getString("phoneNumber", "");
-                db.updateMemberPhone(oldPhoneNumber, phoneNumber);
+                Boolean result = db.updateMemberPhone(oldPhoneNumber, phoneNumber);
+                if (result) {
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("phoneNumber", phoneNumber);
+                    editor.commit();
+                }
+                revisePhoneNumber.setText("");
             }
         });
     }
