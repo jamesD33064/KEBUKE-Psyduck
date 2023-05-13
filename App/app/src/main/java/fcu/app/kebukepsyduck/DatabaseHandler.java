@@ -31,11 +31,12 @@ public class DatabaseHandler {
         database.execSQL(CREATE_MEMBER_TABLE);
     }
 
-    public void addMember(String phone, String password) {
+    public Boolean addMember(String phone, String password) {
         Cursor cursor = database.rawQuery("SELECT * FROM Members WHERE phone=?", new String[]{phone});
         if (cursor.moveToFirst()) {
             // A record with the same phone number already exists
             Toast.makeText(activity, "此手機號碼已被註冊", Toast.LENGTH_SHORT).show();
+            return false;
         } else {
             // No record with the same phone number exists, insert the new member
             ContentValues values = new ContentValues();
@@ -45,6 +46,7 @@ public class DatabaseHandler {
             Toast.makeText(activity, "註冊成功", Toast.LENGTH_SHORT).show();
         }
         cursor.close();
+        return true;
     }
 
     public Cursor getAllMember() {
