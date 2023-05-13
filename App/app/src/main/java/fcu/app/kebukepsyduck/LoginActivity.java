@@ -64,17 +64,18 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                saveLoginStatus(true);
+                saveLoginStatus(true, phoneNumber);
                 Intent intent = new Intent(LoginActivity.this, PersonalMainPageActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void saveLoginStatus(boolean isLoggedIn) {
+    private void saveLoginStatus(boolean isLoggedIn, String phoneNumber) {
         SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("isLoggedIn", isLoggedIn);
+        editor.putString("phoneNumber", phoneNumber);
         editor.apply();
     }
 }
