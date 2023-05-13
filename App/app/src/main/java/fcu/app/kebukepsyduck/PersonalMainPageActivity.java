@@ -3,9 +3,11 @@ package fcu.app.kebukepsyduck;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class PersonalMainPageActivity extends AppCompatActivity {
 
@@ -14,6 +16,7 @@ public class PersonalMainPageActivity extends AppCompatActivity {
     Button orderManageBtn;
     Button revisePhoneNumberBtn;
     Button revisePasswordBtn;
+    Button logoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class PersonalMainPageActivity extends AppCompatActivity {
         orderManageBtn = findViewById(R.id.btn_personalPage_order_manage);
         revisePhoneNumberBtn = findViewById(R.id.btn_personalPage_revise_phone);
         revisePasswordBtn = findViewById(R.id.btn_personalPage_revise_password);
+        logoutBtn = findViewById(R.id.btn_personalPage_logout);
 
         startOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +67,20 @@ public class PersonalMainPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Launch RevisePasswordActivity
                 Intent intent = new Intent(PersonalMainPageActivity.this, RevisePasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("isLoggedIn", false);
+                editor.putString("phoneNumber", "");
+                editor.apply();
+                Toast.makeText(PersonalMainPageActivity.this, "登出成功", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(PersonalMainPageActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
