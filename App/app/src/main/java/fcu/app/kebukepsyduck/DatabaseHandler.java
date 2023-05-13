@@ -49,13 +49,27 @@ public class DatabaseHandler {
         return true;
     }
 
+    public boolean updateMemberPhone(String oldPhone, String newPhone) {
+        Cursor cursor = database.rawQuery("SELECT * FROM Members WHERE phone=?", new String[]{newPhone});
+        if (cursor.moveToFirst()) {
+            // A record with the same phone number already exists
+            Toast.makeText(activity, "此手機號碼已被註冊", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        ContentValues values = new ContentValues();
+        values.put("phone", newPhone);
+        database.update("Members", values, "phone=?", new String[]{oldPhone});
+        Toast.makeText(activity, "手機號碼已更新", Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
     public Cursor getAllMember() {
         Cursor cursor = database.rawQuery("SELECT * FROM Members", null);
         return cursor;
     }
 
     public String getMemberPassword(String phone) {
-        Cursor cursor = database.query("Members", new String[] {"password"}, "phone=?", new String[] {phone}, null, null, null);
+        Cursor cursor = database.query("Members", new String[]{"password"}, "phone=?", new String[]{phone}, null, null, null);
         if (cursor.moveToFirst()) {
             String password = cursor.getString(0);
             cursor.close();
