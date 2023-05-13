@@ -36,9 +36,10 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "請輸入電話號碼和密碼", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                db.addMember(phoneNumber, password);
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
+                if (db.addMember(phoneNumber, password)) {
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
