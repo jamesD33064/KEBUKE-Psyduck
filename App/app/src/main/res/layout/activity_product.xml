@@ -112,5 +112,6 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_cart_shop"
-        tools:layout_editor_absoluteX="199dp" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_cart_shop"
+        app:layout_constraintStart_toStartOf="@+id/btn_cart_shop" />
 </androidx.constraintlayout.widget.ConstraintLayout>
