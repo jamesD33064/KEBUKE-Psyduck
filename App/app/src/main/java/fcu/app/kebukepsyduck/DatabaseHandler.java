@@ -100,8 +100,8 @@ public class DatabaseHandler {
     }
 
 //    ----------------------- For CART -----------------------
-    public Cursor getAllCartItem() {
-        Cursor cursor = database.rawQuery("SELECT * FROM Cart", null);
+    public Cursor getAllCartItem(String phone) {
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone, null);
 //        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
         return cursor;
     }

@@ -3,6 +3,7 @@ package fcu.app.kebukepsyduck;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -53,7 +54,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void showAllCartItem() {
-        Cursor cursor = db.getAllCartItem();
+        SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
+        String PhoneNumber = sharedPref.getString("phoneNumber", "");
+        Cursor cursor = db.getAllCartItem(PhoneNumber);
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 CartActivity.this,
                 android.R.layout.simple_list_item_2,
