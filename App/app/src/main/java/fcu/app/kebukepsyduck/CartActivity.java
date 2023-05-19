@@ -3,10 +3,12 @@ package fcu.app.kebukepsyduck;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,27 +19,20 @@ public class CartActivity extends AppCompatActivity {
 
     private Button btn_cart_shop;
     private Button btn_cart_ConfirmOrder;
+    private DatabaseHandler db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+        db = new DatabaseHandler(this);
+        db.open();
 
         lv_cart_OrderFoods = findViewById(R.id.lv_cart_OrderFoods);
+        showAllCartItem();
 
-        List<FoodItem> lsFoods = new ArrayList<FoodItem>();
-        lsFoods.add(new FoodItem(R.drawable.logo, "漢堡", 99));
-        lsFoods.add(new FoodItem(R.drawable.logo, "飯糰", 88));
-        lsFoods.add(new FoodItem(R.drawable.logo, "奶茶", 77));;
-        lsFoods.add(new FoodItem(R.drawable.logo, "蛋餅", 66));
-        lsFoods.add(new FoodItem(R.drawable.logo, "法式吐司", 55));
-        lsFoods.add(new FoodItem(R.drawable.logo, "法國吐司", 44));
-
-        Cart_LV_FoodList_adapter adapter = new Cart_LV_FoodList_adapter(this, lsFoods);
-        lv_cart_OrderFoods.setAdapter(adapter);
-
-
+// ------------------------------- jump to other activity
         btn_cart_shop = findViewById(R.id.btn_cart_shop);
         btn_cart_shop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +50,19 @@ public class CartActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void showAllCartItem() {
+        Cursor cursor = db.getAllCartItem();
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                CartActivity.this,
+                android.R.layout.simple_list_item_2,
+                cursor,
+                new String[] { "item_name", "quantity" },
+//      new String[] { "meal_name", "img_name" },
+                new int[] { android.R.id.text1, android.R.id.text2},
+                0
+        );
+        lv_cart_OrderFoods.setAdapter(adapter);
     }
 }

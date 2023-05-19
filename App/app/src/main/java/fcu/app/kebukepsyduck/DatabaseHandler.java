@@ -24,7 +24,7 @@ public class DatabaseHandler {
 
     private static final String CREATE_CART_TABLE = "CREATE TABLE IF NOT EXISTS Cart (" +
             " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            " phone TEXT NOT NULL UNIQUE, " +
+            " phone TEXT NOT NULL, " +
             " item_name TEXT NOT NULL, " +
             " quantity INTEGER NOT NULL)";
 
@@ -100,8 +100,17 @@ public class DatabaseHandler {
     }
 
 //    ----------------------- For CART -----------------------
+    public Cursor getAllCartItem() {
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart", null);
+//        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
+        return cursor;
+    }
     public void addItem2Cart(String phoneNumber, String item_name, int quantity){
-
+        ContentValues values = new ContentValues();
+        values.put("phone", phoneNumber);
+        values.put("item_name", item_name);
+        values.put("quantity", quantity);
+        database.insert("Cart", null, values);
     }
 
 
