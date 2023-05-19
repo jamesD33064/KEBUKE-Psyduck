@@ -22,6 +22,12 @@ public class DatabaseHandler {
             " phone TEXT NOT NULL UNIQUE, " +
             " password TEXT NOT NULL)";
 
+    private static final String CREATE_CART_TABLE = "CREATE TABLE IF NOT EXISTS Cart (" +
+            " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            " phone TEXT NOT NULL UNIQUE, " +
+            " item_name TEXT NOT NULL, " +
+            " quantity INTEGER NOT NULL)";
+
     public DatabaseHandler(AppCompatActivity activity) {
         this.activity = activity;
     }
@@ -29,6 +35,7 @@ public class DatabaseHandler {
     public void open() {
         database = activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
         database.execSQL(CREATE_MEMBER_TABLE);
+        database.execSQL(CREATE_CART_TABLE);
     }
 
     public Boolean addMember(String phone, String password) {
@@ -91,4 +98,11 @@ public class DatabaseHandler {
             return null;
         }
     }
+
+//    ----------------------- For CART -----------------------
+    public void addItem2Cart(String phoneNumber, String item_name, int quantity){
+
+    }
+
+
 }
