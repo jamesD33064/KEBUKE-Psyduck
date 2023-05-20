@@ -26,7 +26,14 @@ public class DatabaseHandler {
             " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             " phone TEXT NOT NULL, " +
             " item_name TEXT NOT NULL, " +
-            " quantity INTEGER NOT NULL)";
+            " quantity INTEGER NOT NULL," +
+            " date Text)";
+
+    private static final String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS Order (" +
+            " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            " phone TEXT NOT NULL, " +
+            " state TEXT NOT NULL, " +
+            " date TEXT NOT NULL)";
 
     public DatabaseHandler(AppCompatActivity activity) {
         this.activity = activity;
@@ -112,6 +119,9 @@ public class DatabaseHandler {
         values.put("quantity", quantity);
         database.insert("Cart", null, values);
     }
+
+//    ----------------------- For Confirm Order -----------------------
+
 
 
 }
