@@ -29,9 +29,10 @@ public class DatabaseHandler {
             " quantity INTEGER NOT NULL," +
             " date Text)";
 
-    private static final String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS Order (" +
+    private static final String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS Orders (" +
             " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             " phone TEXT NOT NULL, " +
+            " cost INTEGER NOT NULL, " +
             " state TEXT NOT NULL, " +
             " date TEXT NOT NULL)";
 
@@ -43,7 +44,16 @@ public class DatabaseHandler {
         database = activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
         database.execSQL(CREATE_MEMBER_TABLE);
         database.execSQL(CREATE_CART_TABLE);
+        database.execSQL(CREATE_ORDER_TABLE);
     }
+
+    private static final String DROP_ORDER_TABLE = "DROP TABLE IF EXISTS Orders";
+
+    public void deleteOrderTable() {
+        database.execSQL(DROP_ORDER_TABLE);
+    }
+
+    //    ----------------------- For User Account -----------------------
 
     public Boolean addMember(String phone, String password) {
         Cursor cursor = database.rawQuery("SELECT * FROM Members WHERE phone=?", new String[]{phone});
@@ -112,6 +122,12 @@ public class DatabaseHandler {
 //        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
         return cursor;
     }
+
+    public Cursor getCartItemByPhoneAndDate(String phone, String date) {
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone+" AND date="+date, null);
+        return cursor;
+    }
+
     public void addItem2Cart(String phoneNumber, String item_name, int quantity){
         ContentValues values = new ContentValues();
         values.put("phone", phoneNumber);
@@ -122,6 +138,25 @@ public class DatabaseHandler {
 
 //    ----------------------- For Confirm Order -----------------------
 
+//    ----------------------- For Order List -----------------------
+    public boolean addOrder(String phoneNumber, Integer cost, String state, String date){
+        ContentValues values = new ContentValues();
+        values.put("phone", phoneNumber);
+        values.put("state", state);
+        values.put("date", date);
+        values.put("cost", cost);
+        database.insert("Orders", null, values);
+        return true;
+    }
 
+    public void updateOrder(Integer id, String phoneNumber, String state){
+        ContentValues values = new ContentValues();
+        values.put("state", state);
+        database.update("Orders", values, "_id=?", new String[]{id.toString()});
+    }
 
+    public Cursor getAllOrderByPhone(String phone) {
+        Cursor cursor = database.rawQuery("SELECT * FROM Orders Where phone="+phone, null);
+        return cursor;
+    }
 }
