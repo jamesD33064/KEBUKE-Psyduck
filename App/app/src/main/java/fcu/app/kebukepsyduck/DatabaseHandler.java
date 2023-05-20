@@ -34,6 +34,8 @@ public class DatabaseHandler {
             " phone TEXT NOT NULL, " +
             " cost INTEGER NOT NULL, " +
             " state TEXT NOT NULL, " +
+            " address TEXT NOT NULL, " +
+            " remark TEXT, " +
             " date TEXT NOT NULL)";
 
     public DatabaseHandler(AppCompatActivity activity) {
@@ -118,7 +120,7 @@ public class DatabaseHandler {
 
 //    ----------------------- For CART -----------------------
     public Cursor getAllCartItem(String phone) {
-        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone, null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone+" AND date == \"\"", null);
 //        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
         return cursor;
     }
@@ -137,13 +139,21 @@ public class DatabaseHandler {
     }
 
 //    ----------------------- For Confirm Order -----------------------
+//    public boolean confirmCart(String phone, String date){
+//        ContentValues values = new ContentValues();
+//        values.put("date", date);
+//        database.update("Cart", values, "phone=?", new String[]{phone});
+//        return true;
+//    }
 
 //    ----------------------- For Order List -----------------------
-    public boolean addOrder(String phoneNumber, Integer cost, String state, String date){
+    public boolean addOrder(String phoneNumber, Integer cost, String state, String address, String remark, String date){
         ContentValues values = new ContentValues();
         values.put("phone", phoneNumber);
         values.put("state", state);
         values.put("date", date);
+        values.put("address", address);
+        values.put("remark", remark);
         values.put("cost", cost);
         database.insert("Orders", null, values);
         return true;
