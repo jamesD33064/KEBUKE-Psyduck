@@ -27,6 +27,7 @@ public class DatabaseHandler {
             " phone TEXT NOT NULL, " +
             " item_name TEXT NOT NULL, " +
             " quantity INTEGER NOT NULL," +
+            " price INTEGER NOT NULL," +
             " date Text)";
 
     private static final String CREATE_ORDER_TABLE = "CREATE TABLE IF NOT EXISTS Orders (" +
@@ -48,10 +49,16 @@ public class DatabaseHandler {
         database.execSQL(CREATE_CART_TABLE);
         database.execSQL(CREATE_ORDER_TABLE);
     }
+
     private static final String DROP_ORDER_TABLE = "DROP TABLE IF EXISTS Orders";
+    private static final String DROP_CART_TABLE = "DROP TABLE IF EXISTS Cart";
 
     public void deleteOrderTable() {
         database.execSQL(DROP_ORDER_TABLE);
+    }
+
+    public void deleteCartTable() {
+        database.execSQL(DROP_CART_TABLE);
     }
 
     //    ----------------------- For User Account -----------------------
@@ -117,9 +124,9 @@ public class DatabaseHandler {
         }
     }
 
-//    ----------------------- For CART -----------------------
+    //    ----------------------- For CART -----------------------
     public Cursor getAllCartItem(String phone) {
-        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone+" AND date == \"\"", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone=" + phone + " AND date == \"\"", null);
 //        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
         return cursor;
     }
@@ -129,11 +136,12 @@ public class DatabaseHandler {
         return cursor;
     }
 
-    public void addItem2Cart(String phoneNumber, String item_name, int quantity){
+    public void addItem2Cart(String phoneNumber, String item_name, int quantity, int price) {
         ContentValues values = new ContentValues();
         values.put("phone", phoneNumber);
         values.put("item_name", item_name);
         values.put("quantity", quantity);
+        values.put("price", price);
         database.insert("Cart", null, values);
     }
 
@@ -145,8 +153,8 @@ public class DatabaseHandler {
 //        return true;
 //    }
 
-//    ----------------------- For Order List -----------------------
-    public boolean addOrder(String phoneNumber, Integer cost, String state, String address, String remark, String date){
+    //    ----------------------- For Order List -----------------------
+    public boolean addOrder(String phoneNumber, Integer cost, String state, String address, String remark, String date) {
         ContentValues values = new ContentValues();
         values.put("phone", phoneNumber);
         values.put("state", state);
@@ -158,14 +166,14 @@ public class DatabaseHandler {
         return true;
     }
 
-    public void updateOrder(Integer id, String state){
+    public void updateOrder(Integer id, String state) {
         ContentValues values = new ContentValues();
         values.put("state", state);
         database.update("Orders", values, "_id=?", new String[]{id.toString()});
     }
 
     public Cursor getAllOrderByPhone(String phone) {
-        Cursor cursor = database.rawQuery("SELECT * FROM Orders Where phone="+phone, null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Orders WHERE phone=" + phone + " ORDER BY _id DESC", null);
         return cursor;
     }
 }
