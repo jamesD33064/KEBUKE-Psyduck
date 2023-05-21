@@ -165,7 +165,7 @@ public class DatabaseHandler {
     }
 
     public Cursor getAllOrderByPhone(String phone) {
-        Cursor cursor = database.rawQuery("SELECT * FROM Orders Where phone="+phone, null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Orders WHERE phone=" + phone + " ORDER BY _id DESC", null);
         return cursor;
     }
 }
