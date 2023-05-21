@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_orderManage_order"
+        android:layout_width="327dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#CBD7DB"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.1"
+        android:textColor="#5C8D9D"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_orderManage_time2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="2023/4/24 9:00 AM"
+        android:textAlignment="center"
+        android:textColor="#5C8D9D"
+        android:textFontWeight="800"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="查看明細"
+        android:textAlignment="center"
+        android:textColor="#5C8D9D"
+        android:textFontWeight="800"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_orderManage_cost2"
+        app:layout_constraintStart_toStartOf="@+id/tv_orderManage_cost2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_orderManage_cost2" />
+
+    <TextView
+        android:id="@+id/tv_orderManage_state2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="進行中"
+        android:textAlignment="center"
+        android:textColor="#5C8D9D"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/btn_orderManage_order" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="sans-serif-black"
+        android:text="消費金額"
+        android:textAlignment="center"
+        android:textColor="#5C8D9D"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_orderManage_order"
+        app:layout_constraintTop_toTopOf="@+id/btn_orderManage_order" />
+
+    <TextView
+        android:id="@+id/tv_orderManage_cost2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-black"
+        android:text="20000"
+        android:textAlignment="center"
+        android:textColor="#5C8D9D"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="57dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/btn_orderManage_order"
+        app:layout_constraintTop_toTopOf="@+id/btn_orderManage_order"
+        app:srcCompat="@drawable/light_psyduck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
