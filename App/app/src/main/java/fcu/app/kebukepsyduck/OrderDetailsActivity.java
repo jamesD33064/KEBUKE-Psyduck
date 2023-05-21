@@ -65,7 +65,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         while (orderItem.moveToNext()) {
             @SuppressLint("Range") String foodName = orderItem.getString(orderItem.getColumnIndex("item_name"));
             @SuppressLint("Range") Integer foodCount = orderItem.getInt(orderItem.getColumnIndex("quantity"));
-            foodItemList += foodName + " x " + foodCount + "\n";
+            @SuppressLint("Range") Integer foodPrice = orderItem.getInt(orderItem.getColumnIndex("price"));
+            foodItemList += foodName + " x " + foodCount + " : " + foodPrice + "\n";
         }
         tvFoodItemList.setText(foodItemList);
 
