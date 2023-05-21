@@ -54,7 +54,7 @@ public class ProductActivity extends AppCompatActivity {
                     case R.id.btn_cart_shop:
                         SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
                         String PhoneNumber = sharedPref.getString("phoneNumber", "");
-                        db.addItem2Cart(PhoneNumber, FoodName, item_quantity);
+                        db.addItem2Cart(PhoneNumber, FoodName, item_quantity, Integer.parseInt(FoodPrice) * item_quantity);
                         Toast.makeText(ProductActivity.this, "添加"+item_quantity+"個"+FoodName, Toast.LENGTH_SHORT).show();
 
                         item_quantity = 1;
