@@ -48,7 +48,6 @@ public class DatabaseHandler {
         database.execSQL(CREATE_CART_TABLE);
         database.execSQL(CREATE_ORDER_TABLE);
     }
-
     private static final String DROP_ORDER_TABLE = "DROP TABLE IF EXISTS Orders";
 
     public void deleteOrderTable() {
@@ -126,7 +125,7 @@ public class DatabaseHandler {
     }
 
     public Cursor getCartItemByPhoneAndDate(String phone, String date) {
-        Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone="+phone+" AND date="+date, null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Cart WHERE phone='" + phone + "' AND date='" + date + "'", null);
         return cursor;
     }
 
@@ -159,7 +158,7 @@ public class DatabaseHandler {
         return true;
     }
 
-    public void updateOrder(Integer id, String phoneNumber, String state){
+    public void updateOrder(Integer id, String state){
         ContentValues values = new ContentValues();
         values.put("state", state);
         database.update("Orders", values, "_id=?", new String[]{id.toString()});
