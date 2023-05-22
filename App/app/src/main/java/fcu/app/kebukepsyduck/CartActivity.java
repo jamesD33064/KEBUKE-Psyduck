@@ -80,16 +80,35 @@ public class CartActivity extends AppCompatActivity {
             String quantity = String.valueOf(entry.getValue());
             Map<String, String> itemData = new HashMap<>();
             itemData.put("item_name", itemName);
-            itemData.put("quantity", quantity);
+            itemData.put("quantity", "X "+quantity);
+
+            int totalprice = 0;
+            switch (itemName){
+                case "高級蛋餅":
+                    totalprice = Integer.parseInt(quantity)*10;
+                    break;
+                case "漢堡":
+                    totalprice = Integer.parseInt(quantity)*11;
+                    break;
+                case "吐司":
+                    totalprice = Integer.parseInt(quantity)*12;
+                    break;
+                case "奶茶":
+                    totalprice = Integer.parseInt(quantity)*13;
+                    break;
+            }
+            itemData.put("totalprice", String.valueOf(totalprice)+" $");
+
+
             data.add(itemData);
         }
 
         SimpleAdapter adapter = new SimpleAdapter(
           CartActivity.this,
           data,
-          android.R.layout.simple_list_item_2,
-          new String[]{"item_name", "quantity"},
-          new int[]{android.R.id.text1, android.R.id.text2}
+          R.layout.cart_fooditem_layout,
+          new String[]{"item_name","totalprice" , "quantity"},
+          new int[]{R.id.tv_foodname, R.id.tv_foodprice, R.id.tv_foodquantity}
         );
         lv_cart_OrderFoods.setAdapter(adapter);
     }

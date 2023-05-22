@@ -41,11 +41,11 @@ public class Cart_LV_FoodList_adapter extends BaseAdapter {
         }
         FoodItem food = listFoods.get(i);
 
-        ImageView iv = view.findViewById(R.id.tv_foodimg);
+        ImageView iv = view.findViewById(R.id.iv_foodimg);
         iv.setImageResource(food.getImgID());
 
-        TextView tv_foodname = view.findViewById(R.id.tv_foodname);
-        tv_foodname.setText(food.getFoodName());
+        TextView iv_foodname = view.findViewById(R.id.tv_foodname);
+        iv_foodname.setText(food.getFoodName());
 
         TextView tv_foodprice = view.findViewById(R.id.tv_foodprice);
         tv_foodprice.setText("$ " + food.getFoodPrice());
