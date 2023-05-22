@@ -69,7 +69,7 @@ public class component_FoodItem extends LinearLayout{
     }
 
     public void setProductPrice(String price) {
-        price_component_FoodItem.setText(price);
+        price_component_FoodItem.setText(price+"$");
     }
 
 

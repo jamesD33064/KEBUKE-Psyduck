@@ -61,7 +61,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="高級蛋餅"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_2"
                 android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="漢堡"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_3"
                 android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="吐司"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_4"
                 android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="奶茶"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_5"
                 android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="奶茶"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_6"
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="奶茶"
-                app:textPrice="12$" />
+                app:textPrice="12" />
             <fcu.app.kebukepsyduck.component_FoodItem
                 android:id="@+id/FoodItem_7"
                 android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                 android:layout_marginLeft="16dp"
                 app:imgSrc="@drawable/breakfast_eggcake"
                 app:textName="奶茶"
-                app:textPrice="12$" />
+                app:textPrice="12" />
 
         </LinearLayout>
     </ScrollView>

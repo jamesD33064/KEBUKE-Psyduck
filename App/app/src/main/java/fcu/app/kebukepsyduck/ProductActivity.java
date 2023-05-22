@@ -30,9 +30,10 @@ public class ProductActivity extends AppCompatActivity {
         tv_FoodPrice = findViewById(R.id.product_detail_price);
 
         String FoodName = getIntent().getExtras().getString("FoodName");
-        String FoodPrice = getIntent().getExtras().getString("FoodPrice");
+        String FoodPricefromintent = getIntent().getExtras().getString("FoodPrice");
+        String FoodPrice = FoodPricefromintent.substring(0, FoodPricefromintent.length()-1);
         tv_FoodName.setText(FoodName);
-        tv_FoodPrice.setText(FoodPrice);
+        tv_FoodPrice.setText(FoodPrice+"$");
 
         db = new DatabaseHandler(this);
         db.open();
@@ -54,8 +55,7 @@ public class ProductActivity extends AppCompatActivity {
                     case R.id.btn_cart_shop:
                         SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
                         String PhoneNumber = sharedPref.getString("phoneNumber", "");
-                        db.addItem2Cart(PhoneNumber, FoodName, item_quantity, Integer.parseInt(FoodPrice) * item_quantity);
-                        Toast.makeText(ProductActivity.this, "添加"+item_quantity+"個"+FoodName, Toast.LENGTH_SHORT).show();
+                        db.addItem2Cart(PhoneNumber, FoodName, item_quantity, (Integer.parseInt(FoodPrice) * item_quantity));
 
                         item_quantity = 1;
                         break;

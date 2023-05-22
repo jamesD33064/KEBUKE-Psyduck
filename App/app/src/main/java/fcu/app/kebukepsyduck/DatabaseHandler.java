@@ -127,7 +127,7 @@ public class DatabaseHandler {
     //    ----------------------- For CART -----------------------
     public Cursor getAllCartItem(String phone) {
         Cursor cursor = database.rawQuery("SELECT * FROM Cart Where phone=" + phone + " AND date == \"\"", null);
-//        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, cursor.getCount()+"is added", Toast.LENGTH_SHORT).show();
         return cursor;
     }
 
@@ -142,7 +142,9 @@ public class DatabaseHandler {
         values.put("item_name", item_name);
         values.put("quantity", quantity);
         values.put("price", price);
+        values.put("date", "");
         database.insert("Cart", null, values);
+        Toast.makeText(activity, "添加"+quantity+"個"+item_name, Toast.LENGTH_SHORT).show();
     }
 
 //    ----------------------- For Confirm Order -----------------------
