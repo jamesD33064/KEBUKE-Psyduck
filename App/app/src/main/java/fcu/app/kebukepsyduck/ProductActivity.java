@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class ProductActivity extends AppCompatActivity {
     private TextView tv_FoodPrice;
 
     private TextView tv_item_quantity;
+    private ImageView iv_product_detail_img;
     private Button btn_sub;
     private Button btn_add;
     private Button btn_add2cart;
@@ -28,12 +30,15 @@ public class ProductActivity extends AppCompatActivity {
 
         tv_FoodName = findViewById(R.id.product_detail_name);
         tv_FoodPrice = findViewById(R.id.product_detail_price);
+        iv_product_detail_img = findViewById(R.id.product_detail_img);
 
         String FoodName = getIntent().getExtras().getString("FoodName");
         String FoodPricefromintent = getIntent().getExtras().getString("FoodPrice");
+        int FoodImgfromintent = getIntent().getExtras().getInt("FoodImg");
         String FoodPrice = FoodPricefromintent.substring(0, FoodPricefromintent.length()-1);
         tv_FoodName.setText(FoodName);
         tv_FoodPrice.setText(FoodPrice+"$");
+        iv_product_detail_img.setImageResource(FoodImgfromintent);
 
         db = new DatabaseHandler(this);
         db.open();

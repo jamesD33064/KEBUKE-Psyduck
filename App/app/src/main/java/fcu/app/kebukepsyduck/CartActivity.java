@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -87,14 +92,23 @@ public class CartActivity extends AppCompatActivity {
                 case "高級蛋餅":
                     totalprice = Integer.parseInt(quantity)*10;
                     break;
-                case "漢堡":
+                case "高級漢堡":
                     totalprice = Integer.parseInt(quantity)*11;
                     break;
-                case "吐司":
+                case "高級吐司":
                     totalprice = Integer.parseInt(quantity)*12;
                     break;
-                case "奶茶":
+                case "高級奶茶":
                     totalprice = Integer.parseInt(quantity)*13;
+                    break;
+                case "咖啡":
+                    totalprice = Integer.parseInt(quantity)*14;
+                    break;
+                case "炒麵":
+                    totalprice = Integer.parseInt(quantity)*15;
+                    break;
+                case "紅茶":
+                    totalprice = Integer.parseInt(quantity)*16;
                     break;
             }
             itemData.put("totalprice", String.valueOf(totalprice)+" $");
@@ -107,9 +121,39 @@ public class CartActivity extends AppCompatActivity {
           CartActivity.this,
           data,
           R.layout.cart_fooditem_layout,
-          new String[]{"item_name","totalprice" , "quantity"},
-          new int[]{R.id.tv_foodname, R.id.tv_foodprice, R.id.tv_foodquantity}
-        );
+          new String[]{"item_name","totalprice" , "quantity", "item_name"},
+          new int[]{R.id.tv_foodname, R.id.tv_foodprice, R.id.tv_foodquantity, R.id.iv_foodimg}
+        ) {
+            @Override
+            public void setViewImage(ImageView v, String value) {
+
+                int img_id = R.drawable.ic_launcher_foreground;
+                switch (value){
+                    case "高級蛋餅":
+                        img_id = R.drawable.eggcake;
+                        break;
+                    case "高級漢堡":
+                        img_id = R.drawable.burger;
+                        break;
+                    case "高級吐司":
+                        img_id = R.drawable.toast;
+                        break;
+                    case "高級奶茶":
+                        img_id = R.drawable.milktea;
+                        break;
+                    case "咖啡":
+                        img_id = R.drawable.coffee;
+                        break;
+                    case "炒麵":
+                        img_id = R.drawable.noodle;
+                        break;
+                    case "紅茶":
+                        img_id = R.drawable.blacktea;
+                        break;
+                }
+                v.setImageResource(img_id);
+            }
+        };
         lv_cart_OrderFoods.setAdapter(adapter);
     }
 
