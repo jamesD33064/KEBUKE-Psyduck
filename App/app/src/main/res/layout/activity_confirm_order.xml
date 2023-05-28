@@ -24,11 +24,11 @@
         android:layout_height="wrap_content"
         android:text="電話"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
-        app:layout_constraintStart_toStartOf="@+id/editTextText" />
+        app:layout_constraintBottom_toTopOf="@+id/et_phone"
+        app:layout_constraintStart_toStartOf="@+id/et_phone" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/et_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:text="配送地址"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2" />
+        app:layout_constraintBottom_toTopOf="@+id/et_address"
+        app:layout_constraintStart_toStartOf="@+id/et_address" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/et_address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/et_phone" />
 
     <TextView
         android:id="@+id/textView5"
@@ -70,11 +70,11 @@
         android:layout_height="wrap_content"
         android:text="備註"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
-        app:layout_constraintStart_toStartOf="@+id/editTextText3" />
+        app:layout_constraintBottom_toTopOf="@+id/et_remark"
+        app:layout_constraintStart_toStartOf="@+id/et_remark" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/et_remark"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -85,10 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_address" />
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_confirm"
         android:layout_width="273dp"
         android:layout_height="61dp"
         android:layout_marginBottom="140dp"

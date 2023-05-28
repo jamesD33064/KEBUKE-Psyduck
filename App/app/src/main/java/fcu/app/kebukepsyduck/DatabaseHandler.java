@@ -131,6 +131,11 @@ public class DatabaseHandler {
         return cursor;
     }
 
+    public void delCartItem(String phone, String itemName){
+        String whereClause = "item_name = '" + itemName + "' AND phone = '" + phone + "' AND date == \"\"";
+        database.delete("Cart", whereClause, null);
+    }
+
     public Cursor getCartItemByPhoneAndDate(String phone, String date) {
         Cursor cursor = database.rawQuery("SELECT * FROM Cart WHERE phone='" + phone + "' AND date='" + date + "'", null);
         return cursor;

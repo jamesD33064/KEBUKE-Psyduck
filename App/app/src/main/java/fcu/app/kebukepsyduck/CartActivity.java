@@ -10,11 +10,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -41,6 +44,20 @@ public class CartActivity extends AppCompatActivity {
 
         lv_cart_OrderFoods = findViewById(R.id.lv_cart_OrderFoods);
         showAllCartItem();
+
+// ------------------------------- delete btn click listener
+        AdapterView.OnItemClickListener listviewItemClickListener = new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                String Name = ((TextView) view.findViewById(R.id.tv_foodname)).getText().toString();
+//                Toast.makeText(CartActivity.this, Name, Toast.LENGTH_SHORT).show();
+                SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
+                String PhoneNumber = sharedPref.getString("phoneNumber", "");
+                db.delCartItem(PhoneNumber, Name);
+                showAllCartItem();
+            }
+        };
+        lv_cart_OrderFoods.setOnItemClickListener(listviewItemClickListener);
 
 // ------------------------------- jump to other activity
         btn_cart_shop = findViewById(R.id.btn_cart_shop);

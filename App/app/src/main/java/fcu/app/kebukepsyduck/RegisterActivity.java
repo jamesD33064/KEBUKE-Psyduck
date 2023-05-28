@@ -3,7 +3,6 @@ package fcu.app.kebukepsyduck;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         registerPhoneNumber = findViewById(R.id.et_register_phoneNumber);
         registerPassword = findViewById(R.id.et_register_password);
-        registerBtn = findViewById(R.id.btn_register);
+        registerBtn = findViewById(R.id.btn_confirm);
         db = new DatabaseHandler(this);
         db.open();
 
