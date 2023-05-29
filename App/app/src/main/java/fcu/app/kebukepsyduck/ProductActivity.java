@@ -63,6 +63,9 @@ public class ProductActivity extends AppCompatActivity {
                         db.addItem2Cart(PhoneNumber, FoodName, item_quantity, (Integer.parseInt(FoodPrice) * item_quantity));
 
                         item_quantity = 1;
+
+                        Intent intent = new Intent(ProductActivity.this, FoodListActivity.class);
+                        startActivity(intent);
                         break;
                 }
                 tv_item_quantity.setText(Integer.toString(item_quantity));
