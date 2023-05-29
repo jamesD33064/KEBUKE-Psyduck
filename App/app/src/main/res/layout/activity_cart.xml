@@ -60,4 +60,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_cart_shop" />
+
+    <TextView
+        android:id="@+id/tv_nothingincart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="快去點些東西吃吧!"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lv_cart_OrderFoods"
+        app:layout_constraintEnd_toEndOf="@+id/lv_cart_OrderFoods"
+        app:layout_constraintStart_toStartOf="@+id/lv_cart_OrderFoods"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

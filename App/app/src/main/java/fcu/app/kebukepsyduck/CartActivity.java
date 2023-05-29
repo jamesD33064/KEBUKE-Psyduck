@@ -34,6 +34,7 @@ public class CartActivity extends AppCompatActivity {
     private Button btn_cart_ConfirmOrder;
     private DatabaseHandler db;
 
+    private Integer TotalCost = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,17 @@ public class CartActivity extends AppCompatActivity {
         btn_cart_ConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CartActivity.this, ConfirmOrderActivity.class);
-                startActivity(intent);
+                if(TotalCost != 0){
+                    Bundle bundle = new Bundle();
+                    Intent intent = new Intent();
+                    intent.setClass(CartActivity.this,ConfirmOrderActivity.class);
+                    bundle.putInt("TotalCost",TotalCost);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(CartActivity.this, "購物車沒有東西喔!!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -83,6 +93,7 @@ public class CartActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("loginPref", MODE_PRIVATE);
         String phoneNumber = sharedPref.getString("phoneNumber", "");
         Cursor cursor = db.getAllCartItem(phoneNumber);
+
 
         Map<String, Integer> quantityMap = new HashMap<>();
 
@@ -97,6 +108,7 @@ public class CartActivity extends AppCompatActivity {
         }
 
         List<Map<String, String>> data = new ArrayList<>();
+        TotalCost = 0;
         for (Map.Entry<String, Integer> entry : quantityMap.entrySet()) {
             String itemName = entry.getKey();
             String quantity = String.valueOf(entry.getValue());
@@ -128,10 +140,16 @@ public class CartActivity extends AppCompatActivity {
                     totalprice = Integer.parseInt(quantity)*16;
                     break;
             }
+            TotalCost += totalprice;
             itemData.put("totalprice", String.valueOf(totalprice)+" $");
-
-
             data.add(itemData);
+        }
+        TextView tv_nothingincart=findViewById(R.id.tv_nothingincart);
+        if(TotalCost!=0){
+            tv_nothingincart.setVisibility(View.GONE);
+        }
+        else{
+            tv_nothingincart.setVisibility(View.VISIBLE);
         }
 
         SimpleAdapter adapter = new SimpleAdapter(

@@ -153,12 +153,13 @@ public class DatabaseHandler {
     }
 
 //    ----------------------- For Confirm Order -----------------------
-//    public boolean confirmCart(String phone, String date){
-//        ContentValues values = new ContentValues();
-//        values.put("date", date);
-//        database.update("Cart", values, "phone=?", new String[]{phone});
+    public void confirmCart(String phone, String date){
+        ContentValues values = new ContentValues();
+        String whereClause = "phone=? AND date == \"\"";
+        values.put("date", date);
+        database.update("Cart", values, whereClause, new String[]{phone});
 //        return true;
-//    }
+    }
 
     //    ----------------------- For Order List -----------------------
     public boolean addOrder(String phoneNumber, Integer cost, String state, String address, String remark, String date) {
