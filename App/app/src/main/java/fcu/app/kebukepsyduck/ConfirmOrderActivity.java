@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,6 +24,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
   private EditText et_address;
   private EditText et_remark;
   private TextView totalcost;
+  private String date_now;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -34,8 +38,11 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     String PhoneNumber = sharedPref.getString("phoneNumber", "");
 
     int TotalCost = getIntent().getExtras().getInt("TotalCost");
-//    totalcost.setText(Integer.toString(TotalCost));
     et_phone.setText(PhoneNumber);
+
+    SimpleDateFormat sdf = new SimpleDateFormat("E yyyy/MM/dd");
+    Date currentTime = Calendar.getInstance().getTime();
+    date_now = sdf.format(currentTime.getTime());
 
     db = new DatabaseHandler(this);
     db.open();
@@ -45,11 +52,10 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     btn_confirm.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Date currentTime = Calendar.getInstance().getTime();
-        db.confirmCart(PhoneNumber, currentTime.toString());
+        db.confirmCart(PhoneNumber, date_now);
         String adr = et_address.getText().toString();
         String remark = et_remark.getText().toString();
-        db.addOrder(PhoneNumber, TotalCost, "doing", adr, remark, currentTime.toString());
+        db.addOrder(PhoneNumber, TotalCost, "doing", adr, remark, date_now);
         Toast.makeText(ConfirmOrderActivity.this, "訂購完成!!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(ConfirmOrderActivity.this, PersonalMainPageActivity.class);
         startActivity(intent);
