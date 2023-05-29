@@ -40,7 +40,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     int TotalCost = getIntent().getExtras().getInt("TotalCost");
     et_phone.setText(PhoneNumber);
 
-    SimpleDateFormat sdf = new SimpleDateFormat("E yyyy/MM/dd");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date currentTime = Calendar.getInstance().getTime();
     date_now = sdf.format(currentTime.getTime());
 
